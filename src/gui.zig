@@ -379,6 +379,22 @@ pub const io = struct {
     pub const setBackendFlags = zguiIoSetBackendFlags;
     extern fn zguiIoSetBackendFlags(flags: BackendFlags) void;
 
+    /// `pub fn getBackendRendererName() ?[*:0]const u8`
+    pub const getBackendRendererName = zguiIoGetBackendRendererName;
+    extern fn zguiIoGetBackendRendererName() ?[*:0]const u8;
+
+    /// `pub fn setBackendRendererName(name: ?[*:0]const u8) void`
+    pub const setBackendRendererName = zguiIoSetBackendRendererName;
+    extern fn zguiIoSetBackendRendererName(name: ?[*:0]const u8) void;
+
+    /// `pub fn getBackendRendererUserData() ?*anyopaque`
+    pub const getBackendRendererUserData = zguiIoGetBackendRendererUserData;
+    extern fn zguiIoGetBackendRendererUserData() ?*anyopaque;
+
+    /// `pub fn setBackendRendererUserData(userdata: ?*anyopaque) void`
+    pub const setBackendRendererUserData = zguiIoSetBackendRendererUserData;
+    extern fn zguiIoSetBackendRendererUserData(userdata: ?*anyopaque) void;
+
     /// `pub fn setDeltaTime(delta_time: f32) void`
     pub const setDeltaTime = zguiIoSetDeltaTime;
     extern fn zguiIoSetDeltaTime(delta_time: f32) void;

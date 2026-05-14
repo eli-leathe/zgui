@@ -1616,6 +1616,26 @@ extern "C"
         ImGui::GetIO().BackendFlags = flags;
     }
 
+    ZGUI_API const char* zguiIoGetBackendRendererName()
+    {
+        return ImGui::GetIO().BackendRendererName;
+    }
+
+    ZGUI_API void zguiIoSetBackendRendererName(const char *name)
+    {
+        ImGui::GetIO().BackendRendererName = name;
+    }
+
+    ZGUI_API void* zguiIoGetBackendRendererUserData()
+    {
+        return ImGui::GetIO().BackendRendererUserData;
+    }
+
+    ZGUI_API void zguiIoSetBackendRendererUserData(void *userdata)
+    {
+        ImGui::GetIO().BackendRendererUserData = userdata;
+    }
+
     ZGUI_API ImGuiBackendFlags zguiIoGetBackendFlags()
     {
         return ImGui::GetIO().BackendFlags;
