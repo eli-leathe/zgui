@@ -2185,6 +2185,18 @@ extern "C"
     {
         ImGui::SetItemKeyOwner(key);
     }
+    ZGUI_API ImTextureID zguiDrawCmd_GetTexID(const ImDrawCmd *cmd)
+    {
+        return cmd->GetTexID();
+    }
+    ZGUI_API void zguiTextureData_SetStatus(ImTextureData *texture_data, ImTextureStatus status)
+    {
+        texture_data->SetStatus(status);
+    }
+    ZGUI_API void zguiTextureData_SetTexID(ImTextureData *texture_data, ImTextureID tex_id)
+    {
+        return texture_data->SetTexID(tex_id);
+    }
     //--------------------------------------------------------------------------------------------------
     //
     // DrawList

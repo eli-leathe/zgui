@@ -501,6 +501,15 @@ pub const TextureData = extern struct {
     ref_count: c_ushort,
     use_colors: bool,
     want_destroy_next_frame: bool,
+
+    pub fn setStatus(self: *TextureData, status: TextureStatus) void {
+        zguiTextureData_SetStatus(self, status);
+    }
+    extern fn zguiTextureData_SetStatus(self: *TextureData, status: TextureStatus) void;
+    pub fn setTexID(self: *TextureData, tex_id: TextureIdent) void {
+        zguiTextureData_SetTexID(self, tex_id);
+    }
+    extern fn zguiTextureData_SetTexID(self: *TextureData, tex_id: TextureIdent) void;
 };
 
 pub const Wchar = if (@import("zgui_options").use_wchar32) u32 else u16;
@@ -4221,6 +4230,11 @@ pub const DrawCmd = extern struct {
     user_callback_data: ?*anyopaque,
     user_callback_data_size: c_int,
     user_callback_data_offset: c_int,
+
+    pub fn getTexID(cmd: *const DrawCmd) TextureIdent {
+        return zguiDrawCmd_GetTexID(cmd);
+    }
+    extern fn zguiDrawCmd_GetTexID(cmd: *const DrawCmd) TextureIdent;
 };
 
 pub const DrawCallback = *const fn (*const anyopaque, *const DrawCmd) callconv(.c) void;
